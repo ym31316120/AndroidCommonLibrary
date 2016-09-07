@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mageeyang.android.common">
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:maxSdkVersion="23"/>
+
+    <application>
+
+    </application>
+
+</manifest>
