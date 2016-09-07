@@ -1,2 +1,2 @@
-# AndroidCommonLibrary
-Android 公共类库
+# AndroidLibrary
+Android 类库
