@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mageeyang.app.fqq.activity.LoginActivity">
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_picture"
+        android:src="@drawable/login_default_avatar"
+        android:background="@drawable/login_picture_bg"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"/>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_user"
+        android:layout_below="@id/login_picture">
+        
+        <LinearLayout
+            android:id="@+id/ll_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/lbs_popup_bg">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/account"
+                android:padding="5dp"
+                android:inputType="text"
+                android:layout_margin="2dp"
+                android:background="@drawable/login_et_bg"
+                android:hint="@string/et_account_hint"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/devide_line"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/password"
+                android:padding="5dp"
+                android:inputType="textPassword"
+                android:layout_margin="2dp"
+                android:background="@drawable/login_et_bg"
+                android:hint="@string/et_password_hint"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="@string/login"
+            android:layout_below="@id/ll_user_info"
+            android:background="@drawable/login_btn"
+            android:textColor="@android:color/white"/>
+
+
+        <Button
+            android:id="@+id/register"
+            android:layout_height="40dp"
+            android:layout_width="100dp"
+            android:text="@string/register"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/register_user_btn"
+            android:textColor="@color/blue"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
