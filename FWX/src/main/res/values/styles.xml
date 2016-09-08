@@ -1,0 +1,87 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- name="a0"-->
+    <style name="AppBaseTheme" parent="@android:style/Theme.Light">
+        <!--应用的前景色，ListView的分割线，switch滑动区默认使用该颜色 @color/fe -->
+        <item name="android:colorForeground">@color/colorForeground</item>
+        <!-- 应用的背景色，popMenu的背景默认使用该颜色 @color/ao -->
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <!--android:backgroundDimAmount就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，
+        dialog以外的区域是黑色的，完全看不到其他内容，系统的默认值是0.5，可以根据自己的需要调整 -->
+        <item name="android:backgroundDimAmount">0.6</item>
+        <!-- 指定组件在禁用时的透明度 @dimen/kr -->
+        <item name="android:disabledAlpha">@dimen/disabledAlpha</item>
+
+        <!-- 应用的主要文本颜色 @color/qx-->
+        <item name="android:textColorPrimary">@color/textcolorprimary</item>
+        <!-- 应用的主要文本反向颜色 @color/qw-->
+        <item name="android:textColorPrimaryInverse">@color/textcolorprimaryinverse</item>
+        <!-- RadioButton checkbox等控件的文字颜色 @color/qv -->
+        <item name="android:textColorPrimaryDisableOnly">@color/textcolorprimarydisabledonly</item>
+        <!-- 应用的次要文本颜色 @color/r0-->
+        <item name="android:textColorSecondary">@color/textcolorsecondary</item>
+        <!-- 应用的次要文本反向颜色 @color/qz-->
+        <item name="android:textColorSecondaryInverse">@color/textcolorsecondaryinverse</item>
+        <!-- 应用文本框输入提示的文本颜色 @color/he-->
+        <item name="android:textColorHint">@color/textColorHint</item>
+        <!-- 应用文本框输入提示的文本反向颜色 @color/hd-->
+        <item name="android:textColorHintInverse">@color/textColorHintInverse</item>
+
+        <!-- 通过style的xml指定系统文本的默认外观：颜色，字体，大小，风格。 -->
+        <!--  @style/p3 <style name="p3" parent="@style/aq" />  -->
+        <item name="android:textAppearance">@style/baseTextAppearance</item>
+        <!-- 文本对倒置的背景颜色，默认外观：字体，大小，风格。 @style/pc -->
+        <item name="android:textAppearanceInverse">@style/baseTextAppearanceInverse</item>
+        <!-- 系统大文本的外观 @style/pd -->
+        <item name="android:textAppearanceLarge">@style/baseTextAppearanceLarge</item>
+        <!-- 系统中文本的外观 @style/pj -->
+        <item name="android:textAppearanceMedium">@style/baseTextAppearanceMedium</item>
+        <!-- 系统小文本的外观 @style/po -->
+        <item name="android:textAppearanceSmall">@style/po</item>
+        <item name="android:textAppearanceLargeInverse">@style/pe</item>
+        <item name="android:textAppearanceMediumInverse">@style/pk</item>
+        <item name="android:textAppearanceSmallInverse">@style/pp</item>
+        <item name="android:windowBackground">@color/ao</item>
+        <!--指示该窗口上是否没有标题的标示 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColorHighlight">@color/ha</item>
+        <item name="android:textColorLink">?cz</item>
+        <item name="android:colorForegroundInverse">@color/fd</item>
+        <item name="android:textColorTertiary">@color/r0</item>
+        <item name="android:textColorTertiaryInverse">@color/qz</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/g</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/d</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@color/qu</item>
+        <item name="android:colorBackgroundCacheHint">@color/s7</item>
+    </style>
+    <!-- name="aq"  系统文本外观-->
+    <style name="baseTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/baseTextSize</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColorHighlight">?android:textColorHighlight</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+        <item name="android:textColorLink">?android:textColorLink</item>
+    </style>
+    <!-- name="p"  系统文本外观-->
+    <style name="baseTextAppearanceInverse" parent="@style/baseTextAppearance">
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:textColorHintInverse</item>
+    </style>
+
+    <!-- name="az"  系统大字体文本外观-->
+    <style name="baseTextAppearanceLarge" parent="@style/baseTextAppearance">
+        <item name="android:textSize">@dimen/largeTextSize</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <!-- name="b2"  系统中字体文本外观-->
+    <style name="baseTextAppearanceMedium" parent="@style/baseTextAppearance">
+        <item name="android:textSize">@dimen/midiumTextSize</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+
+
+    </style>
+
+</resources>

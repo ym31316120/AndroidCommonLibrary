@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorForeground">@android:color/black</color>      <!-- name="fe" -->
+    <color name="colorBackground">@color/baseBackground</color>      <!-- name="ao" -->
+
+    <color name="baseBackground">#fffafafa</color>      <!-- name="jp" -->
+    <color name="primaryTextColor">#de000000</color>      <!-- name="ku" -->
+    <color name="primaryText_disabledColor">#39000000</color>                  <!-- name="kw" -->
+
+    <color name="primaryDisableTextColor">@android:color/black</color>       <!-- name="b8" -->
+    <color name="primaryDisableText_disabledColor">#80000000</color>          <!-- name="b4" -->
+
+    <color name="secondaryTextColor">#8a000000</color>      <!-- name="mh" -->
+    <color name="secondaryText_DisabledColor">#24000000</color>      <!-- name="mj" -->
+
+    <color name="primaryTextInverseColor">#ffffffff</color>      <!-- name="kt" -->
+    <color name="primaryTextInverse_disabledColor">#4dffffff</color>      <!-- name="kv" -->
+
+    <color name="secondaryTextInverseColor">#b3ffffff</color>      <!-- name="mg" -->
+    <color name="secondaryTextInverse_disabledColor">#36ffffff</color>      <!-- name="mi" -->
+
+    <color name="textColorHint">#80000000</color>          <!-- name="b4" -->
+    <color name="textColorHintInverse">#80ffffff</color>      <!-- name="b3" -->
+</resources>
