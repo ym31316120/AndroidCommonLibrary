@@ -38,23 +38,72 @@
         <!-- 系统中文本的外观 @style/pj -->
         <item name="android:textAppearanceMedium">@style/baseTextAppearanceMedium</item>
         <!-- 系统小文本的外观 @style/po -->
-        <item name="android:textAppearanceSmall">@style/po</item>
-        <item name="android:textAppearanceLargeInverse">@style/pe</item>
-        <item name="android:textAppearanceMediumInverse">@style/pk</item>
-        <item name="android:textAppearanceSmallInverse">@style/pp</item>
-        <item name="android:windowBackground">@color/ao</item>
+        <item name="android:textAppearanceSmall">@style/baseTextAppearanceSmall</item>
+        <!-- 系统大文本的反向外观 @style/pe -->
+        <item name="android:textAppearanceLargeInverse">@style/baseTextAppearanceLargeInverse</item>
+        <!-- 系统中文本的外观 @style/pk -->
+        <item name="android:textAppearanceMediumInverse">@style/baseTextAppearanceMediumInverse</item>
+        <!-- 系统小文本的外观 @style/pp -->
+        <item name="android:textAppearanceSmallInverse">@style/baseTextAppearanceSmallInverse</item>
+        <!-- @color/ao -->
+        <item name="android:windowBackground">@color/windowBackground</item>
         <!--指示该窗口上是否没有标题的标示 -->
         <item name="android:windowNoTitle">true</item>
-        <item name="android:textColorHighlight">@color/ha</item>
-        <item name="android:textColorLink">?cz</item>
-        <item name="android:colorForegroundInverse">@color/fd</item>
-        <item name="android:textColorTertiary">@color/r0</item>
-        <item name="android:textColorTertiaryInverse">@color/qz</item>
-        <item name="android:listChoiceIndicatorSingle">@drawable/g</item>
-        <item name="android:listChoiceIndicatorMultiple">@drawable/d</item>
-        <item name="android:textColorPrimaryInverseDisableOnly">@color/qu</item>
-        <item name="android:colorBackgroundCacheHint">@color/s7</item>
+        <!--被选中文字的底色 @color/ha-->
+        <item name="android:textColorHighlight">@color/textColorHighlight</item>
+        <!--文字链接的颜色  ?cz-->
+        <item name="android:textColorLink">@color/textColorLink</item>
+        <!--反向前景色   @color/fd-->
+        <item name="android:colorForegroundInverse">@color/colorForegroundInverse</item>
+        <!-- 第三级文本颜色  @color/r0-->
+        <item name="android:textColorTertiary">@color/textcolorsecondary</item>
+        <!-- 第三级文本反向颜色  @color/qz-->
+        <item name="android:textColorTertiaryInverse">@color/textcolorsecondaryinverse</item>
+        <!-- 列表单项选择指示器  @drawable/g-->
+        <item name="android:listChoiceIndicatorSingle">@drawable/listchoiceindicatorsingle</item>
+        <!-- 列表多项选择指示器  @drawable/d-->
+        <item name="android:listChoiceIndicatorMultiple">@drawable/listchoiceindicatormultiple</item>
+        <!-- @color/qu-->
+        <item name="android:textColorPrimaryInverseDisableOnly">@color/textcolorprimaryinversedisableonly</item>
+        <!--缓存提示背景颜色 color_v11  @color/s7-->
+        <!--<item name="android:colorBackgroundCacheHint">@color/colorbackgroundcachehint</item>-->
     </style>
+
+    <!-- name="dp"-->
+    <style name="AppBaseActivityTheme" parent="@style/AppBaseTheme">
+        <!-- The background of a panel when it is inset from the left and right edges of the screen. -->
+        <item name="android:panelBackground">@android:color/transparent</item>
+        <!-- Default ListView style for drop downs.@style/th -->
+        <item name="android:dropDownListViewStyle">@style/listview_nodivider</item>
+        <!-- Default style for drop down items..@style/sr -->
+        <item name="android:dropDownItemStyle">@style/dropDownItemStyle</item>
+    </style>
+
+    <!-- name="c7" -->
+    <style name="listview" parent="@android:style/Widget.ListView">
+        <item name="android:listSelector">?android:listSelector</item>
+    </style>
+    <!-- name="c8" -->
+    <style name="listview_nodivider" parent="@style/listview">
+        <item name="android:divider">@null</item>
+    </style>
+    <!-- name="d9" -->
+    <style name="textappearanceSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">?android:textColorPrimaryDisableOnly</item>
+    </style>
+    <!-- name="bz" -->
+    <style name="baseDropDownItemStyle">
+        <item name="android:textAppearance">@style/textappearanceSmall</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">8.0dip</item>
+        <item name="android:paddingRight">8.0dip</item>
+    </style>
+    <!-- name="aj" -->
+    <style name="dropDownItemStyle" parent="@style/baseDropDownItemStyle">
+        <item name="android:layout_toLeftOf">@android:id/icon2</item>
+        <item name="android:layout_toRightOf">@android:id/icon1</item>
+    </style>
+
     <!-- name="aq"  系统文本外观-->
     <style name="baseTextAppearance" parent="@android:style/TextAppearance">
         <item name="android:textSize">@dimen/baseTextSize</item>
@@ -79,6 +128,28 @@
         <item name="android:textSize">@dimen/midiumTextSize</item>
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
+    <!-- name="b6"  系统小字体文本外观-->
+    <style name="baseTextAppearanceSmall" parent="@style/baseTextAppearance">
+        <item name="android:textSize">@dimen/smallTextSize</item>
+        <item name="android:textColor">?android:textColorTertiary</item>
+    </style>
+    <!-- name="q"  系统大字体文本反向外观-->
+    <style name="baseTextAppearanceLargeInverse" parent="@style/baseTextAppearanceLarge">
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:textColorHintInverse</item>
+    </style>
+    <!-- name="r"  系统中字体文本反向外观-->
+    <style name="baseTextAppearanceMediumInverse" parent="@style/baseTextAppearanceMedium">
+        <item name="android:textColor">?android:textColorSecondaryInverse</item>
+        <item name="android:textColorHint">?android:textColorHintInverse</item>
+    </style>
+    <!-- name="s"  系统中字体文本反向外观-->
+    <style name="baseTextAppearanceSmallInverse" parent="@style/baseTextAppearanceSmall">
+        <item name="android:textColor">?android:textColorTertiaryInverse</item>
+        <item name="android:textColorHint">?android:textColorHintInverse</item>
+    </style>
+
+
     <style name="AppTheme" parent="AppBaseTheme">
 
 

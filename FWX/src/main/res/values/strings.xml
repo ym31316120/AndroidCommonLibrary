@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">FWX</string>
+    <string name="app_name">微信</string>
+    <string name="launcherui_name">微信</string>
 </resources>

@@ -2,8 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="disabledAlpha">0.26</dimen>  <!-- name="kr" -->
+    <item type="dimen" name="disabledAlpha">0.26</item>  <!-- name="kr" -->
     <dimen name="baseTextSize">14.0sp</dimen> <!-- name="l5" -->
     <dimen name="largeTextSize">22.0sp</dimen><!-- name="ld" -->
     <dimen name="midiumTextSize">18.0sp</dimen> <!-- name="le" -->
+    <dimen name="smallTextSize">14.0sp</dimen>     <!-- name="lg" -->
 </resources>
