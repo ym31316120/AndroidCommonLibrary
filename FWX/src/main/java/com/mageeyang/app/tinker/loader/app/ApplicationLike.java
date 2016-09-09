@@ -13,17 +13,17 @@ public abstract class ApplicationLike implements ApplicationLifeCycle {
     private final Application application;
     private final long applicationStartElapsedTime;
     private final long applicationStartMillisTime;
-    private AssetManager[] assetManager;
-    private ClassLoader[] classLoader;
-    private Resources[] resources;
+    private AssetManager assetManager;
+    private ClassLoader classLoader;
+    private Resources resources;
     private final int tinkerFlags;
     private final boolean tinkerLoadVerifyFlag;
     private final Intent tinkerResultIntent;
 
     public ApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag,
                            long applicationStartElapsedTime, long applicationStartMillisTime,
-                           Intent tinkerResultIntent, Resources[] resources,
-                           ClassLoader[] classLoader, AssetManager[] assetManager) {
+                           Intent tinkerResultIntent, Resources resources,
+                           ClassLoader classLoader, AssetManager assetManager) {
         this.application = application;
         this.tinkerFlags = tinkerFlags;
         this.tinkerLoadVerifyFlag = tinkerLoadVerifyFlag;
@@ -66,17 +66,17 @@ public abstract class ApplicationLike implements ApplicationLifeCycle {
 
     public void setAssetManager(AssetManager assetManager)
     {
-        this.assetManager[0] = assetManager;
+        this.assetManager = assetManager;
     }
 
     public void setClassLoader(ClassLoader classLoader)
     {
-        this.classLoader[0] = classLoader;
+        this.classLoader = classLoader;
     }
 
     public void setResources(Resources resources)
     {
-        this.resources[0] = resources;
+        this.resources = resources;
     }
 
     public void onBaseContextAttached(Context context) {}

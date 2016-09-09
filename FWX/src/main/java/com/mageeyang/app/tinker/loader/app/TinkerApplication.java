@@ -44,9 +44,9 @@ public class TinkerApplication extends Application {
     private Object createDelegate() {
         try {
             this.delegateClass = Class.forName(this.delegateClassName, false, getClassLoader());
-            Object localObject = this.delegateClass.getConstructor(new Class[]{Application.class, Integer.TYPE, Boolean.TYPE, Long.TYPE, Long.TYPE, Intent.class,[Landroid.content.res.Resources.class,[Ljava.lang.ClassLoader.class,[
-            Landroid.content.res.AssetManager.class}).
-            newInstance(new Object[]{this, Integer.valueOf(this.tinkerFlags), Boolean.valueOf(this.tinkerLoadVerifyFlag), Long.valueOf(this.applicationStartElapsedTime), Long.valueOf(this.applicationStartMillisTime), this.tinkerResultIntent, this.resources, this.classLoader, this.assetManager});
+            Object localObject = this.delegateClass.getConstructor(new Class[]{Application.class, Integer.TYPE, Boolean.TYPE, Long.TYPE, Long.TYPE, Intent.class, android.content.res.Resources.class, java.lang.ClassLoader.class,
+                    android.content.res.AssetManager.class}).
+                    newInstance(new Object[]{this, Integer.valueOf(this.tinkerFlags), Boolean.valueOf(this.tinkerLoadVerifyFlag), Long.valueOf(this.applicationStartElapsedTime), Long.valueOf(this.applicationStartMillisTime), this.tinkerResultIntent, this.resources, this.classLoader, this.assetManager});
             return localObject;
         } catch (Exception localException) {
             throw new TinkerRuntimeException("createDelegate failed", localException);
