@@ -15,19 +15,31 @@ public final class FileCloseableUtil implements Closeable {
     private final FileOutputStream fos;
     private final FileLock fl;
 
-    private FileCloseableUtil(File paramFile) throws FileNotFoundException {
+    private FileCloseableUtil(File file) throws IOException {
 
-        this.fos = new FileOutputStream(paramFile);
+        this.fos = new FileOutputStream(file);
+        Throwable th = null;
         FileLock fileLock = null;
-        try {
-            fileLock = this.fos.getChannel().lock();
-        } catch (IOException e) {
-            e.printStackTrace();
+        int i = 0;
+        while (i < 3) {
+            try {
+                fileLock = this.fos.getChannel().lock();
+                if (fileLock != null) {
+                    break;
+                }
+                Thread.sleep(10);
+            } catch (Throwable e) {
+                th = e;
+            }
+            i++;
+        }
+        if (fileLock == null) {
+            throw new IOException("Tinker Exception:FileLockHelper lock file failed: " + file.getAbsolutePath(), th);
         }
         this.fl = fileLock;
     }
 
-    public static FileCloseableUtil getInstance(File paramFile) throws FileNotFoundException {
+    public static FileCloseableUtil getInstance(File paramFile) throws IOException {
         return new FileCloseableUtil(paramFile);
     }
 
@@ -38,7 +50,6 @@ public final class FileCloseableUtil implements Closeable {
             if(this.fl!=null){
                 this.fl.release();
             }
-            return;
         }finally {
             if(this.fos!=null){
                 this.fos.close();

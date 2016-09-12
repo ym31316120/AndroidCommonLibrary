@@ -2,6 +2,9 @@ package com.mageeyang.app.tinker.loader.util;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.util.Log;
+
+import org.jetbrains.annotations.Contract;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -9,11 +12,15 @@ import java.util.HashMap;
 /**
  * 获取Intent中Serializable对象
  * d
+ *
  * @author MageeYang
  * @date 2016/09/08
  */
 public class IntentSerializableUtil {
 
+    private static final String TAG = "IntentSerializableUtil";
+
+    @Contract("null, _ -> null")
     @Nullable
     public static Serializable getSerializableExtra(Intent paramIntent, String paramString) {
         if (paramIntent == null) {
@@ -24,30 +31,27 @@ public class IntentSerializableUtil {
             value = paramIntent.getSerializableExtra(paramString);
             return value;
         } catch (Exception e) {
-            new StringBuilder("getSerializableExtra exception:").append(e.getMessage());
+            Log.v(TAG, "getSerializableExtra exception:" + e.getMessage());
         }
         return null;
     }
 
     @Nullable
-    public static String getStringExtra(Intent paramIntent, String paramString) {
-        if (paramIntent == null) {
-            return null;
+    public static String getStringExtra(Intent intent, String str) {
+        String value = null;
+        if (intent != null) {
+            try {
+                value = intent.getStringExtra(str);
+            } catch (Exception e) {
+                Log.v(TAG, "getStringExtra exception:" + e.getMessage());
+            }
         }
-        try {
-            String value = null;
-            value = paramIntent.getStringExtra(paramString);
-            return value;
-        } catch (Exception e) {
-            new StringBuilder("getStringExtra exception:").append(e.getMessage());
-        }
-        return null;
+        return value;
     }
 
     @Nullable
     public static HashMap<String, String> getLibsPath(Intent paramIntent) {
-        Serializable value = null;
-        value = getSerializableExtra(paramIntent, "intent_patch_libs_path");
+        Serializable value = getSerializableExtra(paramIntent, "intent_patch_libs_path");
         if (value != null) {
             return (HashMap) value;
         }
@@ -56,8 +60,7 @@ public class IntentSerializableUtil {
 
     @Nullable
     public static HashMap<String, String> getPackageConfig(Intent paramIntent) {
-        Serializable value = null;
-        value = getSerializableExtra(paramIntent, "intent_patch_package_config");
+        Serializable value = getSerializableExtra(paramIntent, "intent_patch_package_config");
         if (value != null) {
             return (HashMap) value;
         }
@@ -68,36 +71,29 @@ public class IntentSerializableUtil {
         paramIntent.putExtra("intent_return_code", paramInt);
     }
 
-    public static int getIntExtra(Intent paramIntent, String paramString)
-    {
+    public static int getIntExtra(Intent paramIntent, String paramString) {
         if (paramIntent == null) {
             return -10000;
         }
-        try
-        {
+        try {
             int i = paramIntent.getIntExtra(paramString, -10000);
             return i;
-        }
-        catch (Exception e)
-        {
-            new StringBuilder("getIntExtra exception:").append(e.getMessage());
+        } catch (Exception e) {
+            Log.v(TAG, "getIntExtra exception:" + e.getMessage());
         }
         return -10000;
     }
 
-    public static boolean getBooleanExtra(Intent paramIntent, String paramString)
-    {
+    @Contract("null, _ -> false")
+    public static boolean getBooleanExtra(Intent paramIntent, String paramString) {
         if (paramIntent == null) {
             return false;
         }
-        try
-        {
+        try {
             boolean bool = paramIntent.getBooleanExtra(paramString, false);
             return bool;
-        }
-        catch (Exception e)
-        {
-            new StringBuilder("getBooleanExtra exception:").append(e.getMessage());
+        } catch (Exception e) {
+            Log.v(TAG, "getBooleanExtra exception:" + e.getMessage());
         }
         return false;
     }
