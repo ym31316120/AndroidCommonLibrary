@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.webkit.WebView;
+
+import com.mageeyang.kingkong.FileUtils;
+import com.mageeyang.smtt.sdk.WebView;
 
 import org.jetbrains.annotations.Contract;
 
@@ -146,11 +148,11 @@ public final class FileUtil {
     /**
      * c
      */
-    public static boolean c(File file, String str) {
+    public static boolean compareFile(File file, String str) throws Throwable {
         if (str == null) {
             return false;
         }
-        String E = E(file);
+        String E = getStringInfo(file);
         if (E != null) {
             return str.equals(E);
         }
@@ -158,14 +160,19 @@ public final class FileUtil {
     }
 
 
-
-    public static boolean d(File file, String str) {
+    /**
+     * d
+     * @param file
+     * @param str
+     * @return
+     */
+    public static boolean compareFileByDex(File file, String str) throws Throwable {
         if (file == null || str == null) {
             return false;
         }
         Object E;
-        if (Ly(file.getName())) {
-            E = E(file);
+        if (isDex(file.getName())) {
+            E = getStringInfo(file);
         } else {
             try {
                 JarFile jarFile = new JarFile(file);
@@ -173,7 +180,7 @@ public final class FileUtil {
                 if (entry == null) {
                     return false;
                 }
-                E = p(jarFile.getInputStream(entry));
+                E = inputStreamMd5(jarFile.getInputStream(entry));
             } catch (IOException e) {
                 return false;
             }
@@ -262,7 +269,12 @@ public final class FileUtil {
         return stringBuilder.toString();
     }
 
-    private static String p(InputStream inputStream) {
+    /**
+     * p
+     * @param inputStream
+     * @return
+     */
+    private static String inputStreamMd5(InputStream inputStream) {
         String str = null;
         if (inputStream != null) {
             try {
@@ -294,7 +306,7 @@ public final class FileUtil {
      * @param file
      * @return
      */
-    public static String E(File file) {
+    public static String getStringInfo(File file) throws Throwable {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         Throwable th;
@@ -304,7 +316,7 @@ public final class FileUtil {
         try {
             fileInputStream = new FileInputStream(file);
             try {
-                String p = p(fileInputStream);
+                String p = inputStreamMd5(fileInputStream);
                 fileInputStream.close();
                 try {
                     fileInputStream.close();
@@ -347,7 +359,13 @@ public final class FileUtil {
         }
     }
 
-    public static String g(File file, File file2) {
+    /**
+     * g
+     * @param file
+     * @param file2
+     * @return
+     */
+    public static String createDexFileName(File file, File file2) {
         String name = file.getName();
         if (!name.endsWith(".dex")) {
             int lastIndexOf = name.lastIndexOf(".");
